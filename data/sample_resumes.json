@@ -1,0 +1,188 @@
+[
+  {
+    "candidate_id": "CAND-001",
+    "candidate_name": "Arun Kumar",
+    "email": "arun.kumar.dev@example.com",
+    "phone": "+91 98765 43210",
+    "summary": "Motivated Computer Science undergraduate with strong hands-on proficiency in Python, FastAPI, and AI integration. Passionate about building intelligent web applications, LangChain agent workflows, and responsive React interfaces.",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "LangChain",
+      "PostgreSQL",
+      "Docker",
+      "Tailwind CSS",
+      "Git",
+      "RESTful APIs"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Technology in Computer Science & Engineering",
+        "institution": "National Institute of Technology",
+        "field_of_study": "Computer Science",
+        "graduation_year": "2025",
+        "gpa": "8.8/10.0"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Software Engineering Intern",
+        "company": "TechSprint Labs",
+        "duration": "May 2024 - July 2024",
+        "description": "Collaborated with the backend engineering team to develop microservices in FastAPI, implemented asynchronous endpoints, and optimized PostgreSQL database queries for high concurrency.",
+        "achievements": [
+          "Reduced API latency by 28% by refactoring SQLAlchemy ORM queries and indexing key tables.",
+          "Implemented automated CI testing with Pytest achieving 92% code coverage."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Internship Application AI Agent",
+        "description": "Engineered an end-to-end intelligent agent using LangChain, FastAPI, and React that parses candidate resumes and generates personalized, role-specific cover letters tailored to internship postings.",
+        "technologies": ["Python", "FastAPI", "LangChain", "React", "PostgreSQL", "Tailwind CSS"],
+        "link": "https://github.com/U-ARUN07/internship-agent"
+      },
+      {
+        "name": "DocuChat - RAG Knowledge Assistant",
+        "description": "Built a conversational document Q&A application integrating vector similarity search with FAISS, LangChain text splitters, and Gemini API for grounded context retrieval.",
+        "technologies": ["Python", "LangChain", "FAISS", "Streamlit", "Gemini API"],
+        "link": "https://github.com/U-ARUN07/docuchat"
+      }
+    ],
+    "certifications": [
+      "Infosys Springboard - Deep Learning & GenAI Certification",
+      "DeepLearning.AI - LangChain for LLM Application Development",
+      "PostgreSQL Certified Associate"
+    ],
+    "achievements": [
+      "Finalist at Smart India Hackathon 2024 among 1,200+ teams nationwide.",
+      "Published a technical article on Asynchronous API Design in FastAPI on Dev.to with 5,000+ views."
+    ]
+  },
+  {
+    "candidate_id": "CAND-002",
+    "candidate_name": "Priya Sharma",
+    "email": "priya.sharma.tech@example.com",
+    "phone": "+91 91234 56789",
+    "summary": "Dedicated software engineering student with extensive experience in core Java, Spring Boot microservices, and relational databases. Eager to contribute to enterprise-grade backend infrastructure.",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "PostgreSQL",
+      "RESTful APIs",
+      "Git",
+      "Docker",
+      "JUnit",
+      "Maven"
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Information Technology",
+        "institution": "Pune Institute of Computer Technology",
+        "field_of_study": "Information Technology",
+        "graduation_year": "2025",
+        "gpa": "9.1/10.0"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Backend Development Intern",
+        "company": "FinEdge Software",
+        "duration": "Jan 2024 - April 2024",
+        "description": "Assisted in building REST services for a payment processing pipeline using Spring Boot, Hibernate, and PostgreSQL. Wrote JUnit test suites and validated transactional boundaries.",
+        "achievements": [
+          "Developed 8 new microservice endpoints adhering to OpenAPI specifications.",
+          "Automated database migrations using Liquibase and PostgreSQL."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "E-Commerce Microservices Engine",
+        "description": "Architected an order management and catalog service using Spring Boot 3, Spring Data JPA, PostgreSQL, and Docker Compose with complete JWT authentication.",
+        "technologies": ["Java", "Spring Boot", "PostgreSQL", "Docker", "RESTful APIs", "JUnit"],
+        "link": "https://github.com/priyasharma/ecommerce-microservices"
+      },
+      {
+        "name": "Bank Account Ledger System",
+        "description": "Created a multi-threaded banking ledger simulation with ACID transaction guarantees, concurrency controls, and comprehensive unit tests.",
+        "technologies": ["Java", "SQL", "JUnit", "Maven"],
+        "link": "https://github.com/priyasharma/ledger-sim"
+      }
+    ],
+    "certifications": [
+      "Oracle Certified Associate - Java SE 17 Developer",
+      "Infosys Springboard - Spring Boot Microservices Professional"
+    ],
+    "achievements": [
+      "Ranked Top 5% in University IT Department across 4 consecutive semesters.",
+      "Solved 450+ Data Structures & Algorithm problems on LeetCode."
+    ]
+  },
+  {
+    "candidate_id": "CAND-003",
+    "candidate_name": "Rohan Verma",
+    "email": "rohan.verma.ds@example.com",
+    "phone": "+91 99887 76655",
+    "summary": "Aspiring Data Scientist with strong competencies in statistical modeling, predictive analytics, and Python data pipelines (Pandas, NumPy, Scikit-learn). Adept at transforming raw data into visual insights.",
+    "skills": [
+      "Python",
+      "SQL",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Matplotlib",
+      "Seaborn",
+      "PostgreSQL",
+      "Git",
+      "Power BI"
+    ],
+    "education": [
+      {
+        "degree": "B.Tech in Artificial Intelligence & Data Science",
+        "institution": "Vellore Institute of Technology",
+        "field_of_study": "Data Science",
+        "graduation_year": "2025",
+        "gpa": "8.7/10.0"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Data Analytics Trainee",
+        "company": "MetricWave Analytics",
+        "duration": "June 2024 - August 2024",
+        "description": "Conducted exploratory data analysis on multi-million row retail transaction logs, engineered behavioral customer features, and created Power BI dashboards for executives.",
+        "achievements": [
+          "Identified customer churn patterns that helped increase cohort retention by 14%.",
+          "Automated weekly reporting pipelines using Python scripts and SQL views."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Customer Churn Prediction Engine",
+        "description": "Trained and evaluated classification models (Random Forest, XGBoost, Logistic Regression) using Scikit-learn with 86% accuracy and deployed an interactive Streamlit inference dashboard.",
+        "technologies": ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Streamlit"],
+        "link": "https://github.com/rohanverma/churn-prediction"
+      },
+      {
+        "name": "Healthcare Analytics Dashboard",
+        "description": "Processed hospital admission records, cleaned missing data, and developed interactive visualization reports detailing patient wait times and resource allocation.",
+        "technologies": ["Python", "SQL", "Pandas", "Power BI"],
+        "link": "https://github.com/rohanverma/health-insights"
+      }
+    ],
+    "certifications": [
+      "Google Data Analytics Professional Certificate",
+      "Infosys Springboard - Applied Machine Learning in Python"
+    ],
+    "achievements": [
+      "Kaggle Competitions Expert with top 10% finishes in 2 tabular data competitions.",
+      "Department Merit Scholar for Academic Year 2023-2024."
+    ]
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "internship_id": "INT-INF-001",
+    "title": "Java Backend Developer Intern",
+    "company": "Infosys Limited",
+    "description": "Join the enterprise platform engineering team at Infosys to design, build, and optimize high-throughput microservices powering digital transformation for Global 2000 clients. As a Java Backend Intern, you will collaborate with senior architects to implement RESTful APIs, data access pipelines, and distributed event-driven services.",
+    "required_skills": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "RESTful APIs",
+      "Git"
+    ],
+    "preferred_skills": [
+      "PostgreSQL",
+      "Docker",
+      "Microservices",
+      "JUnit",
+      "Kafka"
+    ],
+    "responsibilities": [
+      "Develop and maintain scalable backend microservices using Spring Boot and Java.",
+      "Design database schemas, write optimized SQL queries, and manage data integrity.",
+      "Build secure RESTful endpoints with OAuth2 and JWT authentication.",
+      "Write unit and integration tests using JUnit and Mockito to maintain high code coverage.",
+      "Participate in agile sprint ceremonies, code reviews, and CI/CD deployment pipelines."
+    ],
+    "requirements": [
+      "Pursuing a Bachelor's or Master's degree in Computer Science, Information Technology, or related field.",
+      "Strong foundation in Object-Oriented Programming (OOP) and Data Structures & Algorithms.",
+      "Prior academic or personal project experience building backend systems in Java.",
+      "Familiarity with relational database design and SQL fundamentals.",
+      "Good communication skills and eagerness to learn modern enterprise cloud tools."
+    ],
+    "education_requirements": "B.Tech / B.E. / M.Tech / MCA in Computer Science or related STEM disciplines",
+    "experience_requirements": "0-1 year (Freshers and university students welcome)",
+    "location": "Bengaluru, Karnataka, India",
+    "work_mode": "Hybrid",
+    "duration": "6 Months",
+    "stipend": "₹28,000 / month"
+  },
+  {
+    "internship_id": "INT-INF-002",
+    "title": "Full Stack AI Application Intern",
+    "company": "Infosys Springboard AI Labs",
+    "description": "Work at the intersection of modern web development and generative AI. In this role, you will develop intelligent web applications that integrate Large Language Models (LLMs), agentic workflows, and intuitive web interfaces for enterprise automation.",
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "LangChain"
+    ],
+    "preferred_skills": [
+      "Tailwind CSS",
+      "Vector Databases (FAISS / ChromaDB)",
+      "PostgreSQL",
+      "OpenAI API / Gemini API",
+      "Docker"
+    ],
+    "responsibilities": [
+      "Develop responsive user interfaces using React, TypeScript, and modern CSS frameworks.",
+      "Build high-performance REST APIs and WebSocket endpoints using FastAPI in Python.",
+      "Integrate LLM orchestration frameworks (LangChain / LlamaIndex) for retrieval-augmented generation (RAG).",
+      "Implement prompt engineering strategies, evaluation benchmarks, and safety guardrails.",
+      "Deploy containerized microservices and collaborate across frontend and backend modules."
+    ],
+    "requirements": [
+      "Enrolled in 3rd or 4th year B.E./B.Tech or MCA in Computer Science, AI/ML, or Software Engineering.",
+      "Demonstrated experience with Python web frameworks (FastAPI or Flask) and modern React.",
+      "Hands-on exposure to LLM APIs (OpenAI, Google Gemini, or Anthropic) or LangChain pipelines.",
+      "Solid understanding of REST architecture, asynchronous programming, and state management.",
+      "Portfolio of functional projects on GitHub showcasing full-stack or AI application capabilities."
+    ],
+    "education_requirements": "Bachelor's or Master's in Computer Science, Artificial Intelligence, or relevant technical field",
+    "experience_requirements": "0-1 year with hands-on project portfolio",
+    "location": "Hyderabad, Telangana, India",
+    "work_mode": "Remote",
+    "duration": "6 Months",
+    "stipend": "₹32,000 / month"
+  },
+  {
+    "internship_id": "INT-GOOG-003",
+    "title": "Cloud Infrastructure & DevOps Intern",
+    "company": "CloudNative Solutions",
+    "description": "Accelerate cloud migrations and continuous deployment workflows. You will assist our platform engineering team in provisioning infrastructure as code, maintaining Kubernetes clusters, and setting up automated CI/CD pipelines.",
+    "required_skills": [
+      "Linux",
+      "Python or Bash",
+      "Docker",
+      "Git",
+      "Cloud Fundamentals (AWS/GCP/Azure)"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Terraform",
+      "GitHub Actions",
+      "Prometheus & Grafana",
+      "PostgreSQL"
+    ],
+    "responsibilities": [
+      "Containerize legacy and new applications using Docker and optimize image builds.",
+      "Automate deployment pipelines and testing workflows using GitHub Actions and GitLab CI.",
+      "Monitor application performance, server metrics, and error rates using observability tools.",
+      "Support cloud infrastructure provisioning using Terraform and Helm charts.",
+      "Collaborate on security audits, access control policies, and secrets management."
+    ],
+    "requirements": [
+      "Currently pursuing B.Tech/B.S. in Computer Science, IT, or Systems Engineering.",
+      "Proficiency with Linux operating system environments and shell scripting.",
+      "Clear understanding of networking fundamentals (DNS, TCP/IP, HTTP/HTTPS, SSL/TLS).",
+      "Basic experience with Docker containers and cloud computing concepts.",
+      "Strong analytical mindset with keen attention to system reliability and security."
+    ],
+    "education_requirements": "B.Tech / B.S. in CS/IT/Electronics",
+    "experience_requirements": "Fresher / College Graduate",
+    "location": "Pune, Maharashtra, India",
+    "work_mode": "Hybrid",
+    "duration": "3 Months",
+    "stipend": "₹25,000 / month"
+  },
+  {
+    "internship_id": "INT-DATA-004",
+    "title": "Data Science & Analytics Intern",
+    "company": "Apex Insight Analytics",
+    "description": "Translate complex multi-source datasets into actionable business intelligence and predictive models. You will partner with business analysts and machine learning engineers to clean, analyze, visualize, and model data.",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "Pandas",
+      "NumPy",
+      "Data Visualization (Matplotlib / Seaborn)"
+    ],
+    "preferred_skills": [
+      "Scikit-learn",
+      "Power BI or Tableau",
+      "PostgreSQL",
+      "Statistical Modeling",
+      "Jupyter Notebooks"
+    ],
+    "responsibilities": [
+      "Perform exploratory data analysis (EDA) on structured and semi-structured datasets.",
+      "Build automated data cleaning and transformation pipelines in Python and SQL.",
+      "Develop predictive machine learning models for customer segmentation and forecasting.",
+      "Create interactive visual dashboards for stakeholders using Python or BI tools.",
+      "Document analysis findings and present technical insights to cross-functional teams."
+    ],
+    "requirements": [
+      "Pursuing a degree in Data Science, Statistics, Mathematics, or Computer Science.",
+      "Proficient in Python for data manipulation (Pandas, NumPy) and SQL query writing.",
+      "Solid comprehension of probability, hypothesis testing, regression, and classification algorithms.",
+      "Ability to communicate quantitative insights clearly through charts and reports.",
+      "Prior project work involving real-world datasets (e.g., Kaggle competitions or university capstones)."
+    ],
+    "education_requirements": "B.Sc / B.Tech / M.Sc / M.Tech in Data Science, Statistics, or CS",
+    "experience_requirements": "0-1 year academic/project experience",
+    "location": "Chennai, Tamil Nadu, India",
+    "work_mode": "Remote",
+    "duration": "4 Months",
+    "stipend": "₹26,000 / month"
+  },
+  {
+    "internship_id": "INT-WEB-005",
+    "title": "Frontend React Developer Intern",
+    "company": "NexGen Digital Studio",
+    "description": "Craft pixel-perfect, accessible, and high-performance user interfaces for modern web applications. You will translate UI/UX wireframes into reusable, responsive React components while ensuring smooth state management and fast load times.",
+    "required_skills": [
+      "JavaScript (ES6+)",
+      "React",
+      "HTML5 & CSS3",
+      "Tailwind CSS",
+      "Git"
+    ],
+    "preferred_skills": [
+      "TypeScript",
+      "Next.js",
+      "Redux Toolkit / Zustand",
+      "REST API Integration",
+      "Figma"
+    ],
+    "responsibilities": [
+      "Develop clean, modular, and maintainable React components using modern functional paradigms.",
+      "Implement responsive mobile-first layouts with Tailwind CSS adhering to WCAG accessibility guidelines.",
+      "Integrate asynchronous REST APIs, handle loading/error states, and manage client-side state.",
+      "Optimize frontend bundle sizes, rendering cycles, and core web vitals.",
+      "Participate in design syncs with UX designers and perform cross-browser testing."
+    ],
+    "requirements": [
+      "Currently enrolled in or recently graduated with a degree in Computer Science or related field.",
+      "Strong command of modern JavaScript, DOM manipulation, and React hooks.",
+      "Demonstrated ability to turn design mockups into working web pages with CSS/Tailwind.",
+      "Familiarity with Git version control and collaborative workflows.",
+      "Portfolio of deployed web projects or active GitHub repository."
+    ],
+    "education_requirements": "BCA / MCA / B.Tech / B.Sc Computer Science",
+    "experience_requirements": "Freshers with frontend portfolio",
+    "location": "Gurugram, Haryana, India",
+    "work_mode": "On-site",
+    "duration": "6 Months",
+    "stipend": "₹24,000 / month"
+  }
+]

@@ -1,0 +1,48 @@
+import os
+from pathlib import Path
+from typing import List, Optional
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    PROJECT_NAME: str = "AI-Powered Cover Letter Generation"
+    VERSION: str = "1.0.0"
+    API_V1_STR: str = "/api/v1"
+    PORT: int = 8000
+    HOST: str = "0.0.0.0"
+
+    # Database: Supports SQLite (default for instant run) and PostgreSQL (for production)
+    DATABASE_URL: str = "sqlite:///./cover_letter_app.db"
+
+    # LLM Settings
+    LLM_PROVIDER: str = "gemini"  # "gemini" or "openai"
+    GEMINI_API_KEY: Optional[str] = None
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+
+    OPENAI_API_KEY: Optional[str] = None
+    OPENAI_MODEL: str = "gpt-4o-mini"
+
+    # External Resume Parsing API integration (e.g., https://github.com/U-ARUN07/resume-parsing-api)
+    RESUME_PARSING_API_URL: str = "http://localhost:8001"
+
+    # CORS settings
+    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173"
+
+    # Paths
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
+    DATA_DIR: Path = BASE_DIR / "data"
+
+    model_config = SettingsConfigDict(
+        env_file=str(Path(__file__).resolve().parent.parent / ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
+
+    @property
+    def cors_origin_list(self) -> List[str]:
+        if not self.CORS_ORIGINS:
+            return ["*"]
+        return [origin.strip() for origin in self.CORS_ORIGINS.split(",") if origin.strip()]
+
+
+settings = Settings()
