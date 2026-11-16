@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ArrowLeft,
   Building2,
-  Briefcase,
+  ChevronDown,
 } from 'lucide-react';
 import {
   Internship,
@@ -24,7 +24,9 @@ interface GeneratePageProps {
 export const GeneratePage: React.FC<GeneratePageProps> = ({
   selectedInternship,
   onBackToInternships,
+  onSelectInternship,
 }) => {
+  const [internshipsList, setInternshipsList] = useState<Internship[]>([]);
   const [selectedResume, setSelectedResume] = useState<ResumeData | null>(null);
   const [matchAnalysis, setMatchAnalysis] = useState<MatchingAnalysisResult | null>(null);
   const [loadingMatch, setLoadingMatch] = useState(false);
@@ -32,6 +34,23 @@ export const GeneratePage: React.FC<GeneratePageProps> = ({
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTone, setSelectedTone] = useState<string>('professional');
+
+  // Load all internships to allow in-page role switching
+  useEffect(() => {
+    async function loadRoles() {
+      try {
+        const data = await api.getInternships();
+        const list = data.internships || [];
+        setInternshipsList(list);
+        if (!selectedInternship && list.length > 0) {
+          onSelectInternship(list[0]);
+        }
+      } catch (err) {
+        console.error('Failed to load internships in studio', err);
+      }
+    }
+    loadRoles();
+  }, [selectedInternship]);
 
   // Trigger match analysis whenever internship or resume changes
   useEffect(() => {
@@ -85,78 +104,97 @@ export const GeneratePage: React.FC<GeneratePageProps> = ({
     }
   };
 
-  if (!selectedInternship) {
-    return (
-      <div className="max-w-4xl mx-auto px-4 py-16 text-center space-y-4">
-        <Briefcase className="w-12 h-12 text-slate-300 mx-auto" />
-        <h2 className="text-xl font-bold text-slate-800">No Internship Selected</h2>
-        <p className="text-sm text-slate-500">
-          Please select an internship from the catalog first to tailor a cover letter.
-        </p>
-        <button
-          onClick={onBackToInternships}
-          className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Explore Available Internships</span>
-        </button>
-      </div>
-    );
-  }
+  const currentRole = selectedInternship || (internshipsList.length > 0 ? internshipsList[0] : null);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Top Navigation & Breadcrumbs */}
-      <div className="flex items-center justify-between">
+      {/* Top Navigation & Role Quick Switcher */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <button
           onClick={onBackToInternships}
-          className="inline-flex items-center space-x-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl transition-colors shadow-sm"
+          className="inline-flex items-center space-x-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl transition-colors shadow-sm self-start"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Internships</span>
+          <span>Back to Catalog</span>
         </button>
 
-        <div className="flex items-center space-x-2 text-xs text-slate-400">
-          <span>Step 2 of 2</span>
-          <span>•</span>
-          <span className="font-semibold text-slate-700">Studio & Generation</span>
-        </div>
+        {/* In-Studio Role Dropdown */}
+        {internshipsList.length > 0 && currentRole && (
+          <div className="flex items-center space-x-2 text-xs">
+            <span className="text-slate-400 font-semibold uppercase tracking-wider">Switch Target:</span>
+            <div className="relative inline-block">
+              <select
+                value={currentRole.internship_id}
+                onChange={(e) => {
+                  const found = internshipsList.find((i) => i.internship_id === e.target.value);
+                  if (found) {
+                    onSelectInternship(found);
+                    setCoverLetterData(null); // Reset letter for new role
+                  }
+                }}
+                className="appearance-none bg-white border border-slate-200 rounded-xl px-3.5 py-2 pr-8 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 cursor-pointer"
+              >
+                {internshipsList.map((i) => (
+                  <option key={i.internship_id} value={i.internship_id}>
+                    {i.company} — {i.title} ({i.work_mode || 'Remote'})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Target Internship Header Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center space-x-2 text-brand-700 font-semibold text-xs mb-1">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>{selectedInternship.company}</span>
-              <span>•</span>
-              <span className="text-slate-500">{selectedInternship.work_mode || 'Remote'}</span>
+      {currentRole && (
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-brand-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center space-x-2 text-brand-300 font-semibold text-xs mb-1">
+                <Building2 className="w-3.5 h-3.5" />
+                <span>{currentRole.company}</span>
+                <span>•</span>
+                <span className="text-slate-300">{currentRole.work_mode || 'Remote'}</span>
+                {currentRole.stipend && (
+                  <>
+                    <span>•</span>
+                    <span className="text-emerald-400 font-semibold">{currentRole.stipend}</span>
+                  </>
+                )}
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                {currentRole.title}
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-3xl line-clamp-2 leading-relaxed">
+                {currentRole.description}
+              </p>
             </div>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-              {selectedInternship.title}
-            </h1>
-            <p className="text-xs text-slate-500 mt-1 max-w-2xl line-clamp-2">
-              {selectedInternship.description}
-            </p>
+
+            <div className="flex flex-wrap gap-1.5 self-start md:self-auto max-w-xs justify-end">
+              {currentRole.required_skills?.slice(0, 4).map((s, idx) => (
+                <span
+                  key={idx}
+                  className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-white/10 text-brand-200 border border-white/10"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
           </div>
-
-          <button
-            onClick={onBackToInternships}
-            className="self-start md:self-auto px-3.5 py-1.5 rounded-xl text-xs font-semibold text-brand-700 hover:bg-brand-50 border border-brand-200 transition-colors"
-          >
-            Change Role
-          </button>
         </div>
-      </div>
+      )}
 
-      {/* Two Column Layout: Left (Resume & Match Analysis) | Right (Cover Letter Preview) */}
+      {/* Two Column Layout: Left (Resume & Match Analysis) | Right (Cover Letter Studio) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Candidate & Matching Details */}
         <div className="lg:col-span-5 space-y-6">
           <ResumeSelector
             selectedResume={selectedResume}
-            onSelectResume={(resume) => setSelectedResume(resume)}
+            onSelectResume={(resume) => {
+              setSelectedResume(resume);
+              setCoverLetterData(null);
+            }}
           />
 
           <MatchingScoreGauge
@@ -169,7 +207,7 @@ export const GeneratePage: React.FC<GeneratePageProps> = ({
         <div className="lg:col-span-7">
           <CoverLetterPreview
             coverLetterData={coverLetterData}
-            internship={selectedInternship}
+            internship={currentRole}
             resume={selectedResume}
             generating={generating}
             error={error}

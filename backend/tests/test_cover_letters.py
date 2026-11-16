@@ -110,8 +110,9 @@ def test_get_cover_letter_not_found(db_session: Session):
 def test_missing_api_key_configuration_error(db_session: Session, sample_resume: ResumeData):
     ResumeService.register_resume(sample_resume)
 
-    # Ensure no API keys are present
-    with patch.object(settings, "GEMINI_API_KEY", None), \
+    # Ensure no API keys are present and provider requires a key
+    with patch.object(settings, "LLM_PROVIDER", "gemini"), \
+         patch.object(settings, "GEMINI_API_KEY", None), \
          patch.object(settings, "OPENAI_API_KEY", None), \
          patch.dict("os.environ", {}, clear=True):
 

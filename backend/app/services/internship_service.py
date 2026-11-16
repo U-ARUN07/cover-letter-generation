@@ -1,7 +1,7 @@
 import logging
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
+from sqlalchemy import or_, cast, String
 from app.models.internship import Internship
 from app.schemas.internship import InternshipCreate
 
@@ -20,14 +20,16 @@ class InternshipService:
         """Retrieve internships with optional keyword search and filtering."""
         q = db.query(Internship)
 
-        if query:
+        if query and query.strip():
             search_filter = f"%{query.strip()}%"
             q = q.filter(
                 or_(
                     Internship.title.ilike(search_filter),
                     Internship.company.ilike(search_filter),
                     Internship.description.ilike(search_filter),
-                    Internship.location.ilike(search_filter)
+                    Internship.location.ilike(search_filter),
+                    cast(Internship.required_skills, String).ilike(search_filter),
+                    cast(Internship.preferred_skills, String).ilike(search_filter)
                 )
             )
 
@@ -45,14 +47,16 @@ class InternshipService:
         """Count total matching internships."""
         q = db.query(Internship)
 
-        if query:
+        if query and query.strip():
             search_filter = f"%{query.strip()}%"
             q = q.filter(
                 or_(
                     Internship.title.ilike(search_filter),
                     Internship.company.ilike(search_filter),
                     Internship.description.ilike(search_filter),
-                    Internship.location.ilike(search_filter)
+                    Internship.location.ilike(search_filter),
+                    cast(Internship.required_skills, String).ilike(search_filter),
+                    cast(Internship.preferred_skills, String).ilike(search_filter)
                 )
             )
 

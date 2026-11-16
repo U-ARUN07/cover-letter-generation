@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     OPENAI_MODEL: str = "gpt-4o-mini"
 
     # Ollama Settings (Local free offline LLM)
-    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OLLAMA_BASE_URL: str = "http://127.0.0.1:11434"
     OLLAMA_MODEL: str = "llama3.2"
 
     # External Resume Parsing API integration (e.g., https://github.com/U-ARUN07/resume-parsing-api)
