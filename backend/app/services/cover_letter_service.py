@@ -80,10 +80,25 @@ class CoverLetterService:
                     detail=f"Failed to initialize OpenAI LLM client: {str(e)}"
                 )
 
+        elif provider == "ollama":
+            try:
+                from langchain_ollama import ChatOllama
+                return ChatOllama(
+                    model=settings.OLLAMA_MODEL or "llama3.2",
+                    base_url=settings.OLLAMA_BASE_URL,
+                    temperature=0.4,
+                )
+            except Exception as e:
+                logger.error(f"Error initializing ChatOllama: {e}")
+                raise HTTPException(
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail=f"Failed to initialize Ollama LLM client: {str(e)}. Ensure Ollama is running (`ollama serve`)."
+                )
+
         else:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Unsupported LLM_PROVIDER '{provider}'. Supported providers are 'gemini' and 'openai'."
+                detail=f"Unsupported LLM_PROVIDER '{provider}'. Supported providers are 'gemini', 'openai', and 'ollama'."
             )
 
     @classmethod

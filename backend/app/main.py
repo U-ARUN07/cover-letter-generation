@@ -56,9 +56,11 @@ def health_check():
     """Health check endpoint to verify system status and configuration."""
     has_gemini = bool(settings.GEMINI_API_KEY)
     has_openai = bool(settings.OPENAI_API_KEY)
+    is_ollama = settings.LLM_PROVIDER == "ollama"
     active_key_configured = (
         (settings.LLM_PROVIDER == "gemini" and has_gemini) or
-        (settings.LLM_PROVIDER == "openai" and has_openai)
+        (settings.LLM_PROVIDER == "openai" and has_openai) or
+        is_ollama
     )
 
     return {
@@ -69,6 +71,7 @@ def health_check():
         "llm_configured": active_key_configured,
         "gemini_configured": has_gemini,
         "openai_configured": has_openai,
+        "ollama_configured": is_ollama,
         "database": "connected",
         "timestamp": datetime.now(timezone.utc).isoformat()
     }

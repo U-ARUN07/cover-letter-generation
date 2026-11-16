@@ -10,7 +10,19 @@ export const StatusBanner: React.FC<StatusBannerProps> = ({ health }) => {
   if (!health) return null;
 
   if (health.llm_configured) {
-    return null; // All good, no need to show warning banner
+    if (health.llm_provider === 'ollama') {
+      return (
+        <div className="bg-emerald-50 border-b border-emerald-200 px-4 py-2.5">
+          <div className="max-w-7xl mx-auto flex items-center justify-between text-xs text-emerald-900">
+            <span>
+              <strong>Local LLM Active:</strong> Connected to local Ollama instance. No external API keys required!
+            </span>
+            <span className="font-semibold text-emerald-700">100% Offline & Free</span>
+          </div>
+        </div>
+      );
+    }
+    return null;
   }
 
   return (
@@ -19,7 +31,7 @@ export const StatusBanner: React.FC<StatusBannerProps> = ({ health }) => {
         <div className="flex items-center space-x-2">
           <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
           <span>
-            <strong>LLM API Key Not Configured:</strong> The system is running in offline mode. To generate personalized cover letters using live LLM models, set your <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">GEMINI_API_KEY</code> or <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">OPENAI_API_KEY</code> in <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">backend/.env</code>.
+            <strong>LLM Configuration:</strong> Currently in preview mode. To generate with live models, set <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">GEMINI_API_KEY</code>, <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">OPENAI_API_KEY</code>, or switch to <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">LLM_PROVIDER=&quot;ollama&quot;</code> in <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-800 font-mono">backend/.env</code>.
           </span>
         </div>
         <div className="flex items-center space-x-2 flex-shrink-0">

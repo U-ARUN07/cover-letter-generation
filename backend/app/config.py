@@ -15,12 +15,16 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./cover_letter_app.db"
 
     # LLM Settings
-    LLM_PROVIDER: str = "gemini"  # "gemini" or "openai"
+    LLM_PROVIDER: str = "gemini"  # "gemini", "openai", or "ollama"
     GEMINI_API_KEY: Optional[str] = None
     GEMINI_MODEL: str = "gemini-1.5-flash"
 
     OPENAI_API_KEY: Optional[str] = None
     OPENAI_MODEL: str = "gpt-4o-mini"
+
+    # Ollama Settings (Local free offline LLM)
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OLLAMA_MODEL: str = "llama3.2"
 
     # External Resume Parsing API integration (e.g., https://github.com/U-ARUN07/resume-parsing-api)
     RESUME_PARSING_API_URL: str = "http://localhost:8001"

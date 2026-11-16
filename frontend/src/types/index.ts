@@ -93,6 +93,7 @@ export interface HealthStatus {
   llm_configured: boolean;
   gemini_configured: boolean;
   openai_configured: boolean;
+  ollama_configured?: boolean;
   database: string;
   timestamp: string;
 }
