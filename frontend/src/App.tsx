@@ -21,6 +21,8 @@ export const App: React.FC = () => {
       }
     }
     checkHealth();
+    const interval = setInterval(checkHealth, 4000);
+    return () => clearInterval(interval);
   }, []);
 
   const handleSelectInternship = (internship: Internship) => {
